@@ -1,0 +1,36 @@
+{
+  "name": "group-avatar-composer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "shx rm -fr dist/*",
+    "dist": "npm run clean && npm run build",
+    "pack": "npm pack",
+    "test": "npm run dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juzibot/group-image-composer.git"
+  },
+  "keywords": [],
+  "author": "windmemory",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juzibot/group-image-composer/issues"
+  },
+  "files": [
+    "dist/"
+  ],
+  "homepage": "https://github.com/juzibot/group-image-composer#readme",
+  "dependencies": {
+    "jimp": "^0.16.1"
+  },
+  "devDependencies": {
+    "@chatie/git-scripts": "^0.6.2",
+    "@chatie/semver": "^0.4.7",
+    "@types/node": "^14.6.2",
+    "shx": "^0.3.2"
+  }
+}
