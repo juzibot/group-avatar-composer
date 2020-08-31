@@ -9,7 +9,9 @@
     "dist": "npm run clean && npm run build",
     "lint": "tsc --noEmit",
     "pack": "npm pack",
-    "test": "npm run dist"
+    "sloc": "sloc scripts src tests --details --format cli-table --keys total,source,comment && sloc scripts src tests",
+    "test": "npm run lint && nyc npm run test:unit && npm run sloc",
+    "test:unit": "blue-tape -r ts-node/register \"tests/*.spec.ts\" \"tests/**/*.spec.ts\""
   },
   "repository": {
     "type": "git",
@@ -32,7 +34,12 @@
     "@chatie/git-scripts": "^0.6.2",
     "@chatie/semver": "^0.4.7",
     "@types/node": "^14.6.2",
-    "shx": "^0.3.2"
+    "nyc": "^15.1.0",
+    "shx": "^0.3.2",
+    "sloc": "^0.2.1",
+    "ts-node": "^9.0.0",
+    "tstest": "^0.4.10",
+    "typescript": "^4.0.2"
   },
   "git": {
     "scripts": {

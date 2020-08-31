@@ -13,6 +13,12 @@ export class GroupAvatar {
 
   constructor (options: GroupAvatarOptions) {
     this.memberAvatars = options.memberAvatars;
+    if (options.maxLines) {
+      this.maxLines = options.maxLines;
+    }
+    if (options.size) {
+      this.size = options.size;
+    }
   }
 
   public async getAvatar (): Promise<Buffer> {
@@ -84,12 +90,9 @@ export class GroupAvatar {
     return results;
   }
 
-  private getSingleAvatarSize (lines: number, space?: number) {
+  private getSingleAvatarSize (lines: number, space: number) {
     if (lines === 1) {
       lines = 2;
-    }
-    if (!space) {
-      space = this.getSpace(lines);
     }
 
     return (this.size - space * (lines + 1)) / lines;
